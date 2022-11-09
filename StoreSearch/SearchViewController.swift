@@ -76,6 +76,7 @@ extension SearchViewController: UISearchBarDelegate {
             print("URL: '\(url)'")
             if let data = performStoreRequest(with: url) {
                 searchResults = parse(data: data)
+                searchResults.sort(by: <)
             }
             tableView.reloadData()
         }
@@ -99,14 +100,21 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellIdentifier = TableView.CellIdentifiers.searchResultCell
-        var cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! SearchResultCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! SearchResultCell
 
         if searchResults.count == 0 {
             return tableView.dequeueReusableCell(withIdentifier: TableView.CellIdentifiers.nothingFoundCell, for: indexPath)
         } else {
             let searchResult = searchResults[indexPath.row]
             cell.nameLabel.text = searchResult.name
-            cell.artistNameLabel.text = searchResult.artistName
+            if searchResult.artist.isEmpty {
+              cell.artistNameLabel.text = "Unknown"
+            } else {
+              cell.artistNameLabel.text = String(
+                format: "%@ (%@)",
+                searchResult.artist,
+                searchResult.type)
+            }
         }
 
         return cell
