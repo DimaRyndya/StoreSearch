@@ -27,6 +27,16 @@ func iTunesURL(searchText: String) -> URL {
     return url!
 }
 
+func performStoreRequest(with url: URL) -> String? {
+    do {
+        return try String(contentsOf: url, encoding: .utf8)
+    } catch {
+        print("Download Error: \(error.localizedDescription)")
+        return nil
+    }
+}
+
+
 
 //MARK: Search Bar Delegate
 extension SearchViewController: UISearchBarDelegate {
@@ -38,6 +48,9 @@ extension SearchViewController: UISearchBarDelegate {
             searchResults = []
 
             let url = iTunesURL(searchText: searchBar.text!)
+            if let jsonString = performStoreRequest(with: url) {
+                print("Received JSON string '\(jsonString)'")
+            }
             print("URL: '\(url)'")
 
             tableView.reloadData()
