@@ -17,6 +17,7 @@
 		1DED76552919AA02009E3317 /* SearchResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DED76542919AA02009E3317 /* SearchResultCell.xib */; };
 		1DED7657291AB588009E3317 /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DED7656291AB588009E3317 /* SearchResultCell.swift */; };
 		1DED7659291ABC03009E3317 /* NothingFoundCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DED7658291ABC03009E3317 /* NothingFoundCell.xib */; };
+		1DED765B291D3D0B009E3317 /* LoadingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DED765A291D3D0B009E3317 /* LoadingCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		1DED76542919AA02009E3317 /* SearchResultCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchResultCell.xib; sourceTree = "<group>"; };
 		1DED7656291AB588009E3317 /* SearchResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultCell.swift; sourceTree = "<group>"; };
 		1DED7658291ABC03009E3317 /* NothingFoundCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NothingFoundCell.xib; sourceTree = "<group>"; };
+		1DED765A291D3D0B009E3317 /* LoadingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 				1DED764229184426009E3317 /* SearchViewController.swift */,
 				1DED765229199CA4009E3317 /* SearchResult.swift */,
 				1DED7656291AB588009E3317 /* SearchResultCell.swift */,
+				1DED765A291D3D0B009E3317 /* LoadingCell.xib */,
 				1DED76542919AA02009E3317 /* SearchResultCell.xib */,
 				1DED7658291ABC03009E3317 /* NothingFoundCell.xib */,
 				1DED764429184426009E3317 /* Main.storyboard */,
@@ -139,6 +142,7 @@
 			files = (
 				1DED764B29184427009E3317 /* LaunchScreen.storyboard in Resources */,
 				1DED764829184427009E3317 /* Assets.xcassets in Resources */,
+				1DED765B291D3D0B009E3317 /* LoadingCell.xib in Resources */,
 				1DED76552919AA02009E3317 /* SearchResultCell.xib in Resources */,
 				1DED7659291ABC03009E3317 /* NothingFoundCell.xib in Resources */,
 				1DED764629184426009E3317 /* Main.storyboard in Resources */,
