@@ -20,6 +20,12 @@ class SearchResultCell: UITableViewCell {
 
     }
 
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        downloadTask?.cancel()
+        downloadTask = nil
+    }
+
     // MARK: - Helper Methods
     func configure(for result: SearchResult) {
         nameLabel.text = result.name
