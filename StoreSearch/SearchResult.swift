@@ -77,7 +77,6 @@ class SearchResult: Codable, CustomStringConvertible {
         case trackName, trackPrice, trackViewUrl
         case collectionName, collectionViewUrl, collectionPrice
     }
-
 }
 
 func < (lhs: SearchResult, rhs: SearchResult) -> Bool {
