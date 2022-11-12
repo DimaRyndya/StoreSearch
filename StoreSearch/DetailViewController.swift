@@ -9,6 +9,8 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var genreLabel: UILabel!
     @IBOutlet weak var priceButton: UIButton!
 
+    var searchResult: SearchResult!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         popupView.layer.cornerRadius = 10
@@ -20,11 +22,45 @@ class DetailViewController: UIViewController {
         gestureRecognizer.delegate = self
         view.addGestureRecognizer(gestureRecognizer)
 
+        if searchResult != nil {
+            updateUI()
+        }
     }
 
     // MARK: - Actions
     @IBAction func close() {
         dismiss(animated: true, completion: nil)
+    }
+
+    func updateUI() {
+        nameLabel.text = searchResult.name
+
+        if searchResult.artist.isEmpty {
+            artistNameLabel.text = "Unknown"
+        } else {
+            artistNameLabel.text = searchResult.artist
+        }
+
+        kindLabel.text = searchResult.type
+        genreLabel.text = searchResult.genre
+
+        // Show price
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        formatter.currencyCode = searchResult.currency
+
+        let priceText: String
+        if searchResult.price == 0 {
+            priceText = "Free"
+        } else if let text = formatter.string(
+            from: searchResult.price as NSNumber) {
+            priceText = text
+        } else {
+            priceText = ""
+        }
+
+        priceButton.setTitle(priceText, for: .normal)
+
     }
 }
 
