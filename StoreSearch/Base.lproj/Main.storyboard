@@ -163,6 +163,9 @@
                                                         <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                         <state key="normal" title="$9.99" backgroundImage="PriceButton"/>
+                                                        <connections>
+                                                            <action selector="openInStore" destination="8Lw-Ct-ArA" eventType="touchUpInside" id="ixd-xm-fcE"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
@@ -208,7 +211,7 @@
                         <outlet property="kindLabel" destination="GyA-j0-c3x" id="TaV-VX-gkf"/>
                         <outlet property="nameLabel" destination="nwa-uc-nDp" id="IZ2-mx-9hp"/>
                         <outlet property="popupView" destination="FHa-zb-nQr" id="6ej-Yz-yID"/>
-                        <outlet property="priceButton" destination="qV5-l5-fy5" id="aCK-LA-Wcg"/>
+                        <outlet property="priceButton" destination="qV5-l5-fy5" id="Npa-Lx-bKr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pca-er-rPc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

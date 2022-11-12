@@ -10,7 +10,14 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var priceButton: UIButton!
 
     var searchResult: SearchResult!
+    var downloadTask: URLSessionDownloadTask?
 
+    deinit {
+        print("deinit \(self)")
+        downloadTask?.cancel()
+    }
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         popupView.layer.cornerRadius = 10
@@ -30,6 +37,12 @@ class DetailViewController: UIViewController {
     // MARK: - Actions
     @IBAction func close() {
         dismiss(animated: true, completion: nil)
+    }
+
+    @IBAction func openInStore() {
+        if let url = URL(string: searchResult.storeURL) {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        }
     }
 
     func updateUI() {
@@ -60,6 +73,11 @@ class DetailViewController: UIViewController {
         }
 
         priceButton.setTitle(priceText, for: .normal)
+
+        // Get image
+        if let largeURL = URL(string: searchResult.imageLarge) {
+            downloadTask = artworkImageView.loadImage(url: largeURL)
+        }
 
     }
 }
