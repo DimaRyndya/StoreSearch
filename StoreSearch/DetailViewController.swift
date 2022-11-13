@@ -12,6 +12,12 @@ class DetailViewController: UIViewController {
     var searchResult: SearchResult!
     var downloadTask: URLSessionDownloadTask?
 
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        transitioningDelegate = self
+    }
+
+
     deinit {
         print("deinit \(self)")
         downloadTask?.cancel()
@@ -93,4 +99,11 @@ extension DetailViewController: UIGestureRecognizerDelegate {
         return (touch.view === self.view)
     }
 }
+
+extension DetailViewController: UIViewControllerTransitioningDelegate {
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return BounceAnimationController()
+    }
+}
+
 
