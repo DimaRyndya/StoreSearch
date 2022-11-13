@@ -21,6 +21,7 @@
 		1DED765F291ED632009E3317 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DED765E291ED632009E3317 /* DetailViewController.swift */; };
 		1DED766129215A52009E3317 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DED766029215A52009E3317 /* GradientView.swift */; };
 		1DED76632921626B009E3317 /* BounceAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DED76622921626B009E3317 /* BounceAnimationController.swift */; };
+		1DED7665292169ED009E3317 /* SlideOutAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DED7664292169ED009E3317 /* SlideOutAnimationController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		1DED765E291ED632009E3317 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		1DED766029215A52009E3317 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		1DED76622921626B009E3317 /* BounceAnimationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BounceAnimationController.swift; sourceTree = "<group>"; };
+		1DED7664292169ED009E3317 /* SlideOutAnimationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideOutAnimationController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 				1DED765E291ED632009E3317 /* DetailViewController.swift */,
 				1DED766029215A52009E3317 /* GradientView.swift */,
 				1DED76622921626B009E3317 /* BounceAnimationController.swift */,
+				1DED7664292169ED009E3317 /* SlideOutAnimationController.swift */,
 				1DED765A291D3D0B009E3317 /* LoadingCell.xib */,
 				1DED76542919AA02009E3317 /* SearchResultCell.xib */,
 				1DED7658291ABC03009E3317 /* NothingFoundCell.xib */,
@@ -173,6 +176,7 @@
 				1DED7657291AB588009E3317 /* SearchResultCell.swift in Sources */,
 				1DED766129215A52009E3317 /* GradientView.swift in Sources */,
 				1DED765F291ED632009E3317 /* DetailViewController.swift in Sources */,
+				1DED7665292169ED009E3317 /* SlideOutAnimationController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
