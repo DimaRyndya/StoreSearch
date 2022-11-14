@@ -3,10 +3,10 @@ import UIKit
 class LandscapeViewController: UIViewController {
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var pageControl: UIPageControl!
-
+    
     var searchResults = [SearchResult]()
     private var firstTime = true
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Remove constraints from main view
@@ -19,8 +19,9 @@ class LandscapeViewController: UIViewController {
         scrollView.removeConstraints(scrollView.constraints)
         scrollView.translatesAutoresizingMaskIntoConstraints = true
         view.backgroundColor = UIColor(patternImage: UIImage(named: "LandscapeBackground")!)
+        pageControl.numberOfPages = 0
     }
-
+    
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         let safeFrame = view.safeAreaLayoutGuide.layoutFrame
@@ -35,7 +36,22 @@ class LandscapeViewController: UIViewController {
             tileButtons(searchResults)
         }
     }
-
+    
+    // MARK: - Actions
+    @IBAction func pageChanged(_ sender: UIPageControl) {
+        UIView.animate(
+            withDuration: 0.3,
+            delay: 0,
+            options: [.curveEaseInOut],
+            animations: {
+                self.scrollView.contentOffset = CGPoint(
+                    x: self.scrollView.bounds.size.width * CGFloat(sender.currentPage),
+                    y: 0)
+            },
+            completion: nil)
+    }
+    
+    
     // MARK: - Private Methods
     private func tileButtons(_ searchResults: [SearchResult]) {
         let itemWidth: CGFloat = 94
@@ -50,13 +66,13 @@ class LandscapeViewController: UIViewController {
         rowsPerPage = Int(viewHeight / itemHeight)
         marginX = (viewWidth - (CGFloat(columnsPerPage) * itemWidth)) * 0.5
         marginY = (viewHeight - (CGFloat(rowsPerPage) * itemHeight)) * 0.5
-
+        
         // Button size
         let buttonWidth: CGFloat = 82
         let buttonHeight: CGFloat = 82
         let paddingHorz = (itemWidth - buttonWidth) / 2
         let paddingVert = (itemHeight - buttonHeight) / 2
-
+        
         // Add the buttons
         var row = 0
         var column = 0
@@ -79,14 +95,27 @@ class LandscapeViewController: UIViewController {
                 }
             }
         }
-
+        
         // Set scroll view content size
         let buttonsPerPage = columnsPerPage * rowsPerPage
         let numPages = 1 + (searchResults.count - 1) / buttonsPerPage
         scrollView.contentSize = CGSize(
             width: CGFloat(numPages) * viewWidth,
             height: scrollView.bounds.size.height)
-
+        
         print("Number of pages: \(numPages)")
+        
+        pageControl.numberOfPages = numPages
+        pageControl.currentPage = 0
+        
     }
 }
+
+extension LandscapeViewController: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let width = scrollView.bounds.size.width
+        let page = Int((scrollView.contentOffset.x + width / 2) / width)
+        pageControl.currentPage = page
+    }
+}
+
