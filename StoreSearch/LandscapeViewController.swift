@@ -4,6 +4,8 @@ class LandscapeViewController: UIViewController {
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var pageControl: UIPageControl!
 
+    var searchResults = [SearchResult]()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Remove constraints from main view
@@ -15,6 +17,7 @@ class LandscapeViewController: UIViewController {
         // Remove constraints for scroll view
         scrollView.removeConstraints(scrollView.constraints)
         scrollView.translatesAutoresizingMaskIntoConstraints = true
+        view.backgroundColor = UIColor(patternImage: UIImage(named: "LandscapeBackground")!)
     }
 
     override func viewWillLayoutSubviews() {
