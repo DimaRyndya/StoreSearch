@@ -4,7 +4,7 @@ class SearchViewController: UIViewController {
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
-    
+
     var searchResults = [SearchResult]()
     var hasSearched = false
     var isLoading = false
@@ -26,7 +26,7 @@ class SearchViewController: UIViewController {
     @IBAction func segmentChanged(_ sender: UISegmentedControl) {
         performSearch()
     }
-    
+
     // MARK: - Helper Methods
     func iTunesURL(searchText: String, category: Int) -> URL {
         let kind: String
@@ -40,32 +40,43 @@ class SearchViewController: UIViewController {
             withAllowedCharacters: CharacterSet.urlQueryAllowed)!
         let urlString = "https://itunes.apple.com/search?" +
         "term=\(encodedText)&limit=200&entity=\(kind)"
-        
+
         let url = URL(string: urlString)
         return url!
     }
-    
+
     func showLandscape(with coordinator: UIViewControllerTransitionCoordinator) {
         guard landscapeVC == nil else { return }
         landscapeVC = storyboard!.instantiateViewController(
             withIdentifier: "LandscapeViewController") as? LandscapeViewController
         if let controller = landscapeVC {
             controller.view.frame = view.bounds
+            controller.view.alpha = 0
             view.addSubview(controller.view)
             addChild(controller)
-            controller.didMove(toParent: self)
+            coordinator.animate(
+                alongsideTransition: { _ in
+                    controller.view.alpha = 1
+                }, completion: { _ in
+                    controller.didMove(toParent: self)
+                })
         }
     }
-    
+
     func hideLandscape(with coordinator: UIViewControllerTransitionCoordinator) {
         if let controller = landscapeVC {
             controller.willMove(toParent: nil)
-            controller.view.removeFromSuperview()
-            controller.removeFromParent()
-            landscapeVC = nil
+            coordinator.animate(
+                alongsideTransition: { _ in
+                    controller.view.alpha = 0
+                }, completion: { _ in
+                    controller.view.removeFromSuperview()
+                    controller.removeFromParent()
+                    self.landscapeVC = nil
+                })
         }
     }
-    
+
     func parse(data: Data) -> [SearchResult] {
         do {
             let decoder = JSONDecoder()
@@ -97,18 +108,18 @@ extension SearchViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         performSearch()
     }
-    
+
     func performSearch() {
         if !searchBar.text!.isEmpty {
             searchBar.resignFirstResponder()
-            
+
             dataTask?.cancel()
             isLoading = true
             tableView.reloadData()
-            
+
             hasSearched = true
             searchResults = []
-            
+
             let url = iTunesURL(searchText: searchBar.text!, category: segmentedControl.selectedSegmentIndex)
             let session = URLSession.shared
             dataTask = session.dataTask(with: url) { data, response, error in
@@ -138,7 +149,7 @@ extension SearchViewController: UISearchBarDelegate {
             dataTask?.resume()
         }
     }
-    
+
     func position(for bar: UIBarPositioning) -> UIBarPosition {
         return .topAttached
     }
@@ -156,14 +167,14 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
             return searchResults.count
         }
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellIdentifier = TableView.CellIdentifiers.searchResultCell
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! SearchResultCell
-        
+
         if isLoading {
             let cell = tableView.dequeueReusableCell(withIdentifier: TableView.CellIdentifiers.loadingCell, for: indexPath)
-            
+
             let spinner = cell.viewWithTag(100) as! UIActivityIndicatorView
             spinner.startAnimating()
             return cell
@@ -175,12 +186,12 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
             return cell
         }
     }
-    
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         performSegue(withIdentifier: "ShowDetail", sender: indexPath)
     }
-    
+
     func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
         if searchResults.count == 0 || isLoading {
             return nil
@@ -188,7 +199,7 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
             return indexPath
         }
     }
-    
+
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ShowDetail" {
@@ -198,10 +209,10 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
             detailViewController.searchResult = searchResult
         }
     }
-    
+
     override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
         super.willTransition(to: newCollection, with: coordinator)
-        
+
         switch newCollection.verticalSizeClass {
         case .compact:
             showLandscape(with: coordinator)
@@ -211,7 +222,7 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
             break
         }
     }
-    
+
     struct TableView {
         struct CellIdentifiers {
             static let searchResultCell = "SearchResultCell"
