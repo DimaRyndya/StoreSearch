@@ -251,6 +251,10 @@
                         <viewLayoutGuide key="safeArea" id="PJL-df-NKF"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <connections>
+                        <outlet property="pageControl" destination="szN-9Z-cMw" id="TWk-Gf-urB"/>
+                        <outlet property="scrollView" destination="tVp-ac-0dF" id="hL1-5i-nOW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cwW-Jy-bck" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

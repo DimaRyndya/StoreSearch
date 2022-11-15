@@ -26,7 +26,7 @@ class LandscapeViewController: UIViewController {
         // Remove constraints for scroll view
         scrollView.removeConstraints(scrollView.constraints)
         scrollView.translatesAutoresizingMaskIntoConstraints = true
-        view.backgroundColor = UIColor(patternImage: UIImage(named: "LandscapeBackground")!)
+        view.backgroundColor = UIColor(patternImage: UIImage(named: "LandscapeBackground-dark")!)
         pageControl.numberOfPages = 0
     }
 
@@ -87,7 +87,7 @@ class LandscapeViewController: UIViewController {
         var x = marginX
         for (_, result) in searchResults.enumerated() {
             let button = UIButton(type: .custom)
-            button.setBackgroundImage(UIImage(named: "LandscapeButton"), for: .normal)
+            button.setBackgroundImage(UIImage(named: "LandscapeButton-dark"), for: .normal)
             button.frame = CGRect(
                 x: x + paddingHorz,
                 y: marginY + CGFloat(row) * itemHeight + paddingVert,
