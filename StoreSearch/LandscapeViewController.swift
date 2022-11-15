@@ -3,10 +3,18 @@ import UIKit
 class LandscapeViewController: UIViewController {
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var pageControl: UIPageControl!
-    
-    var searchResults = [SearchResult]()
+
+    var search: Search!
     private var firstTime = true
-    
+    private var downloads = [URLSessionDownloadTask]()
+
+    deinit {
+        print("deinit \(self)")
+        for task in downloads {
+            task.cancel()
+        }
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Remove constraints from main view
@@ -21,7 +29,7 @@ class LandscapeViewController: UIViewController {
         view.backgroundColor = UIColor(patternImage: UIImage(named: "LandscapeBackground")!)
         pageControl.numberOfPages = 0
     }
-    
+
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         let safeFrame = view.safeAreaLayoutGuide.layoutFrame
@@ -33,10 +41,10 @@ class LandscapeViewController: UIViewController {
             height: pageControl.frame.size.height)
         if firstTime {
             firstTime = false
-            tileButtons(searchResults)
+            tileButtons(search.searchResults)
         }
     }
-    
+
     // MARK: - Actions
     @IBAction func pageChanged(_ sender: UIPageControl) {
         UIView.animate(
@@ -50,8 +58,8 @@ class LandscapeViewController: UIViewController {
             },
             completion: nil)
     }
-    
-    
+
+
     // MARK: - Private Methods
     private func tileButtons(_ searchResults: [SearchResult]) {
         let itemWidth: CGFloat = 94
@@ -66,26 +74,26 @@ class LandscapeViewController: UIViewController {
         rowsPerPage = Int(viewHeight / itemHeight)
         marginX = (viewWidth - (CGFloat(columnsPerPage) * itemWidth)) * 0.5
         marginY = (viewHeight - (CGFloat(rowsPerPage) * itemHeight)) * 0.5
-        
+
         // Button size
         let buttonWidth: CGFloat = 82
         let buttonHeight: CGFloat = 82
         let paddingHorz = (itemWidth - buttonWidth) / 2
         let paddingVert = (itemHeight - buttonHeight) / 2
-        
+
         // Add the buttons
         var row = 0
         var column = 0
         var x = marginX
-        for (index, result) in searchResults.enumerated() {
-            let button = UIButton(type: .system)
-            button.backgroundColor = UIColor.white
-            button.setTitle("\(index)", for: .normal)
+        for (_, result) in searchResults.enumerated() {
+            let button = UIButton(type: .custom)
+            button.setBackgroundImage(UIImage(named: "LandscapeButton"), for: .normal)
             button.frame = CGRect(
                 x: x + paddingHorz,
                 y: marginY + CGFloat(row) * itemHeight + paddingVert,
                 width: buttonWidth,
                 height: buttonHeight)
+            downloadImage(for: result, andPlaceOn: button)
             scrollView.addSubview(button)
             row += 1
             if row == rowsPerPage {
@@ -95,20 +103,43 @@ class LandscapeViewController: UIViewController {
                 }
             }
         }
-        
+
         // Set scroll view content size
         let buttonsPerPage = columnsPerPage * rowsPerPage
         let numPages = 1 + (searchResults.count - 1) / buttonsPerPage
         scrollView.contentSize = CGSize(
             width: CGFloat(numPages) * viewWidth,
             height: scrollView.bounds.size.height)
-        
+
         print("Number of pages: \(numPages)")
-        
+
         pageControl.numberOfPages = numPages
         pageControl.currentPage = 0
-        
+
     }
+
+    private func downloadImage(
+        for searchResult: SearchResult,
+        andPlaceOn button: UIButton
+    ) {
+        if let url = URL(string: searchResult.imageSmall) {
+            let task = URLSession.shared.downloadTask(with: url) {
+                [weak button] url, _, error in
+                if error == nil, let url = url,
+                   let data = try? Data(contentsOf: url),
+                   let image = UIImage(data: data) {
+                    DispatchQueue.main.async {
+                        if let button = button {
+                            button.setImage(image, for: .normal)
+                        }
+                    }
+                }
+            }
+            task.resume()
+            downloads.append(task)
+        }
+    }
+
 }
 
 extension LandscapeViewController: UIScrollViewDelegate {
