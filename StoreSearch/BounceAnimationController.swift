@@ -4,7 +4,7 @@ class BounceAnimationController: NSObject, UIViewControllerAnimatedTransitioning
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         return 0.4
     }
-
+    
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         if let toViewController = transitionContext.viewController(
             forKey: UITransitionContextViewControllerKey.to),
@@ -15,7 +15,7 @@ class BounceAnimationController: NSObject, UIViewControllerAnimatedTransitioning
                 for: toViewController)
             containerView.addSubview(toView)
             toView.transform = CGAffineTransform(scaleX: 0.7, y: 0.7)
-
+            
             UIView.animateKeyframes(
                 withDuration: transitionDuration(
                     using: transitionContext),

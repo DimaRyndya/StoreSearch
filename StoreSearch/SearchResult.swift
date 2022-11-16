@@ -9,8 +9,8 @@ class SearchResult: Codable, CustomStringConvertible {
     var description: String {
         return "\nResult - Kind: \(kind ?? "None"), Name: \(name), Artist Name: \(artistName ?? "None")"
     }
-
-
+    
+    
     var artistName: String? = ""
     var trackName: String? = ""
     var kind: String? = ""
@@ -25,18 +25,18 @@ class SearchResult: Codable, CustomStringConvertible {
     var itemPrice: Double?
     var itemGenre: String?
     var bookGenre: [String]?
-
+    
     var name: String {
         return trackName ?? collectionName ?? ""
     }
     var storeURL: String {
         return trackViewUrl ?? collectionViewUrl ?? ""
     }
-
+    
     var price: Double {
         return trackPrice ?? collectionPrice ?? itemPrice ?? 0.0
     }
-
+    
     var genre: String {
         if let genre = itemGenre {
             return genre
@@ -62,11 +62,11 @@ class SearchResult: Codable, CustomStringConvertible {
         }
         return "Unknown"
     }
-
+    
     var artist: String {
         return artistName ?? ""
     }
-
+    
     enum CodingKeys: String, CodingKey {
         case imageSmall = "artworkUrl60"
         case imageLarge = "artworkUrl100"

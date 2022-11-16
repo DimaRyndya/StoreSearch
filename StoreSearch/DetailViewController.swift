@@ -8,39 +8,39 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var kindLabel: UILabel!
     @IBOutlet weak var genreLabel: UILabel!
     @IBOutlet weak var priceButton: UIButton!
-
+    
     enum AnimationStyle {
         case slide
         case fade
     }
-
+    
     var dismissStyle = AnimationStyle.fade
     var searchResult: SearchResult!
     var downloadTask: URLSessionDownloadTask?
-
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         transitioningDelegate = self
     }
-
-
+    
+    
     deinit {
         print("deinit \(self)")
         downloadTask?.cancel()
     }
-
-
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         popupView.layer.cornerRadius = 10
-
+        
         let gestureRecognizer = UITapGestureRecognizer(
             target: self,
             action: #selector(close))
         gestureRecognizer.cancelsTouchesInView = false
         gestureRecognizer.delegate = self
         view.addGestureRecognizer(gestureRecognizer)
-
+        
         if searchResult != nil {
             updateUI()
         }
@@ -49,38 +49,38 @@ class DetailViewController: UIViewController {
         let dimmingView = GradientView(frame: CGRect.zero)
         dimmingView.frame = view.bounds
         view.insertSubview(dimmingView, at: 0)
-
+        
     }
-
+    
     // MARK: - Actions
     @IBAction func close() {
         dismissStyle = .slide
         dismiss(animated: true, completion: nil)
     }
-
+    
     @IBAction func openInStore() {
         if let url = URL(string: searchResult.storeURL) {
             UIApplication.shared.open(url, options: [:], completionHandler: nil)
         }
     }
-
+    
     func updateUI() {
         nameLabel.text = searchResult.name
-
+        
         if searchResult.artist.isEmpty {
             artistNameLabel.text = "Unknown"
         } else {
             artistNameLabel.text = searchResult.artist
         }
-
+        
         kindLabel.text = searchResult.type
         genreLabel.text = searchResult.genre
-
+        
         // Show price
         let formatter = NumberFormatter()
         formatter.numberStyle = .currency
         formatter.currencyCode = searchResult.currency
-
+        
         let priceText: String
         if searchResult.price == 0 {
             priceText = "Free"
@@ -90,9 +90,9 @@ class DetailViewController: UIViewController {
         } else {
             priceText = ""
         }
-
+        
         priceButton.setTitle(priceText, for: .normal)
-
+        
         // Get image
         if let largeURL = URL(string: searchResult.imageLarge) {
             downloadTask = artworkImageView.loadImage(url: largeURL)
@@ -110,7 +110,7 @@ extension DetailViewController: UIViewControllerTransitioningDelegate {
     func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         return BounceAnimationController()
     }
-
+    
     func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         switch dismissStyle {
         case .slide:

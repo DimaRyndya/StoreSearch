@@ -5,12 +5,12 @@ class GradientView: UIView {
         super.init(frame: frame)
         backgroundColor = UIColor.clear
     }
-
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         backgroundColor = UIColor.clear
     }
-
+    
     override func draw(_ rect: CGRect) {
         let traits = UITraitCollection.current
         let color: CGFloat = traits.userInterfaceStyle == .light ? 0.314 : 1
