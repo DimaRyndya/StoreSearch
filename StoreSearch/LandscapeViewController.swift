@@ -43,10 +43,14 @@ class LandscapeViewController: UIViewController {
             firstTime = false
             
             switch search.state {
-            case .notSearchedYet, .loading, .noResults:
+            case .notSearchedYet:
                 break
             case .results(let list):
                 tileButtons(list)
+            case .loading:
+                showSpinner()
+            case .noResults:
+                showNothingFoundLabel()
             }
         }
     }
@@ -65,8 +69,33 @@ class LandscapeViewController: UIViewController {
             completion: nil)
     }
 
+    // MARK: - Helper Methods
+    func searchResultsReceived() {
+        hideSpinner()
+
+        switch search.state {
+        case .notSearchedYet, .loading, .noResults:
+            break
+        case .results(let list):
+            tileButtons(list)
+        }
+    }
 
     // MARK: - Private Methods
+    private func hideSpinner() {
+      view.viewWithTag(1000)?.removeFromSuperview()
+    }
+
+    private func showSpinner() {
+        let spinner = UIActivityIndicatorView(style: .large)
+        spinner.center = CGPoint(
+            x: scrollView.bounds.midX + 0.5,
+            y: scrollView.bounds.midY + 0.5)
+        spinner.tag = 1000
+        view.addSubview(spinner)
+        spinner.startAnimating()
+    }
+
     private func tileButtons(_ searchResults: [SearchResult]) {
         let itemWidth: CGFloat = 94
         let itemHeight: CGFloat = 88
@@ -146,6 +175,24 @@ class LandscapeViewController: UIViewController {
         }
     }
 
+    private func showNothingFoundLabel() {
+        let label = UILabel(frame: CGRect.zero)
+        label.text = "Nothing Found"
+        label.textColor = UIColor.label
+        label.backgroundColor = UIColor.clear
+
+        label.sizeToFit()
+
+        var rect = label.frame
+        rect.size.width = ceil(rect.size.width / 2) * 2
+        rect.size.height = ceil(rect.size.height / 2) * 2
+        label.frame = rect
+
+        label.center = CGPoint(
+            x: scrollView.bounds.midX,
+            y: scrollView.bounds.midY)
+        view.addSubview(label)
+    }
 }
 
 extension LandscapeViewController: UIScrollViewDelegate {
