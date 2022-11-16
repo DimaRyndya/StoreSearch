@@ -10,6 +10,8 @@
 		1D2E9C82292546B900BEDA2F /* NothingFoundCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D2E9C84292546B900BEDA2F /* NothingFoundCell.xib */; };
 		1D2E9C8629254B6B00BEDA2F /* LoadingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D2E9C8829254B6B00BEDA2F /* LoadingCell.xib */; };
 		1D89C201292553D000C8BC21 /* SearchResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D89C203292553D000C8BC21 /* SearchResultCell.xib */; };
+		1D89C2062925582D00C8BC21 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1D89C2082925582D00C8BC21 /* Localizable.strings */; };
+		1D89C20C2925783B00C8BC21 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1D89C20E2925783B00C8BC21 /* InfoPlist.strings */; };
 		1DED763F29184426009E3317 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DED763E29184426009E3317 /* AppDelegate.swift */; };
 		1DED764129184426009E3317 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DED764029184426009E3317 /* SceneDelegate.swift */; };
 		1DED764329184426009E3317 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DED764229184426009E3317 /* SearchViewController.swift */; };
@@ -34,6 +36,10 @@
 		1D2E9C8A29254BA700BEDA2F /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/LoadingCell.strings; sourceTree = "<group>"; };
 		1D89C2002925517800C8BC21 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Main.strings; sourceTree = "<group>"; };
 		1D89C202292553D000C8BC21 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SearchResultCell.xib; sourceTree = "<group>"; };
+		1D89C2072925582D00C8BC21 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		1D89C20929255A1500C8BC21 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Localizable.strings; sourceTree = "<group>"; };
+		1D89C20D2925783B00C8BC21 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		1D89C20F2925784100C8BC21 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1DED763B29184426009E3317 /* StoreSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StoreSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DED763E29184426009E3317 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1DED764029184426009E3317 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -102,6 +108,8 @@
 				1DED764429184426009E3317 /* Main.storyboard */,
 				1DED764729184427009E3317 /* Assets.xcassets */,
 				1DED764C29184427009E3317 /* Info.plist */,
+				1D89C2082925582D00C8BC21 /* Localizable.strings */,
+				1D89C20E2925783B00C8BC21 /* InfoPlist.strings */,
 			);
 			path = StoreSearch;
 			sourceTree = "<group>";
@@ -166,6 +174,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				1DED764829184427009E3317 /* Assets.xcassets in Resources */,
+				1D89C20C2925783B00C8BC21 /* InfoPlist.strings in Resources */,
+				1D89C2062925582D00C8BC21 /* Localizable.strings in Resources */,
 				1D2E9C8629254B6B00BEDA2F /* LoadingCell.xib in Resources */,
 				1D89C201292553D000C8BC21 /* SearchResultCell.xib in Resources */,
 				1D2E9C82292546B900BEDA2F /* NothingFoundCell.xib in Resources */,
@@ -223,6 +233,24 @@
 				1D89C202292553D000C8BC21 /* Base */,
 			);
 			name = SearchResultCell.xib;
+			sourceTree = "<group>";
+		};
+		1D89C2082925582D00C8BC21 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1D89C2072925582D00C8BC21 /* en */,
+				1D89C20929255A1500C8BC21 /* nl */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		1D89C20E2925783B00C8BC21 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1D89C20D2925783B00C8BC21 /* en */,
+				1D89C20F2925784100C8BC21 /* nl */,
+			);
+			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 		1DED764429184426009E3317 /* Main.storyboard */ = {
