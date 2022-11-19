@@ -58,11 +58,23 @@ class DetailViewController: UIViewController {
             view.backgroundColor = UIColor(patternImage: UIImage(
                 named: "LandscapeBackground-dark")!)
             popupView.isHidden = true
+            // Popover action button
+            navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(showPopover(_:)))
         }
 
         if searchResult != nil {
             updateUI()
         }
+    }
+
+    @objc func showPopover(_ sender: UIBarButtonItem) {
+        guard let popover = storyboard?.instantiateViewController(
+            withIdentifier: "PopoverView") else { return }
+        popover.modalPresentationStyle = .popover
+        if let ppc = popover.popoverPresentationController {
+            ppc.barButtonItem = sender
+        }
+        present(popover, animated: true, completion: nil)
     }
     
     // MARK: - Actions

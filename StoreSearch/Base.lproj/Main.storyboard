@@ -347,6 +347,7 @@
                             <outlet property="delegate" destination="Dl5-N8-IcT" id="SMO-Ry-Rh4"/>
                         </connections>
                     </tableView>
+                    <value key="contentSizeForViewInPopover" type="size" width="320" height="204"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lF1-1W-7SQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
