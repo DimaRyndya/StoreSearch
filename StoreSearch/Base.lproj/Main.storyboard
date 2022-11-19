@@ -72,16 +72,16 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="TkG-83-zXy" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="19Y-nl-s6A"/>
-                            <constraint firstItem="v0o-0h-bVt" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="-44" id="UOq-y5-pyh"/>
-                            <constraint firstItem="TkG-83-zXy" firstAttribute="top" secondItem="v0o-0h-bVt" secondAttribute="bottom" id="X9L-f8-bas"/>
-                            <constraint firstItem="Zxy-OE-s8U" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Z29-WH-mjc"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="TkG-83-zXy" secondAttribute="trailing" id="eRE-1i-lIi"/>
-                            <constraint firstItem="Zxy-OE-s8U" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="f31-7m-TKM"/>
-                            <constraint firstItem="v0o-0h-bVt" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="jIn-qd-of3"/>
-                            <constraint firstItem="Zxy-OE-s8U" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="mXF-wd-0fo"/>
-                            <constraint firstItem="v0o-0h-bVt" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="o19-gG-oJU"/>
-                            <constraint firstItem="Zxy-OE-s8U" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="vnU-04-7CV"/>
+                            <constraint firstItem="Zxy-OE-s8U" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Feg-CJ-Sgx"/>
+                            <constraint firstItem="Zxy-OE-s8U" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="KM7-cm-XO3"/>
+                            <constraint firstItem="TkG-83-zXy" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="QpQ-Ya-nbX"/>
+                            <constraint firstItem="TkG-83-zXy" firstAttribute="top" secondItem="v0o-0h-bVt" secondAttribute="bottom" id="ZdX-S9-w85"/>
+                            <constraint firstItem="v0o-0h-bVt" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="ijR-Sm-fbH"/>
+                            <constraint firstItem="Zxy-OE-s8U" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="ozj-Uc-DRI"/>
+                            <constraint firstItem="Zxy-OE-s8U" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="pHy-8y-Uf0"/>
+                            <constraint firstItem="v0o-0h-bVt" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="-44" id="sqy-FV-SvZ"/>
+                            <constraint firstItem="v0o-0h-bVt" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="tcl-UT-q4n"/>
+                            <constraint firstItem="TkG-83-zXy" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="yOy-AD-6Io"/>
                         </constraints>
                     </view>
                     <connections>
