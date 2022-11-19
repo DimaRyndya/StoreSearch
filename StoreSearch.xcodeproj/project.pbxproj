@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1D2E9C82292546B900BEDA2F /* NothingFoundCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D2E9C84292546B900BEDA2F /* NothingFoundCell.xib */; };
 		1D2E9C8629254B6B00BEDA2F /* LoadingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D2E9C8829254B6B00BEDA2F /* LoadingCell.xib */; };
+		1D4BA7BF292959E20033EBB7 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4BA7BE292959E20033EBB7 /* MenuViewController.swift */; };
 		1D89C201292553D000C8BC21 /* SearchResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D89C203292553D000C8BC21 /* SearchResultCell.xib */; };
 		1D89C2062925582D00C8BC21 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1D89C2082925582D00C8BC21 /* Localizable.strings */; };
 		1D89C20C2925783B00C8BC21 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1D89C20E2925783B00C8BC21 /* InfoPlist.strings */; };
@@ -34,6 +35,7 @@
 		1D2E9C852925472A00BEDA2F /* nl */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = nl; path = nl.lproj/NothingFoundCell.xib; sourceTree = "<group>"; };
 		1D2E9C8729254B6B00BEDA2F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LoadingCell.xib; sourceTree = "<group>"; };
 		1D2E9C8A29254BA700BEDA2F /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/LoadingCell.strings; sourceTree = "<group>"; };
+		1D4BA7BE292959E20033EBB7 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		1D89C2002925517800C8BC21 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Main.strings; sourceTree = "<group>"; };
 		1D89C202292553D000C8BC21 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SearchResultCell.xib; sourceTree = "<group>"; };
 		1D89C2072925582D00C8BC21 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 				1DED766629216FC2009E3317 /* LandscapeViewController.swift */,
 				1DED76682922ACD8009E3317 /* FadeOutAnimationController.swift */,
 				1DED766A2923D5F0009E3317 /* Search.swift */,
+				1D4BA7BE292959E20033EBB7 /* MenuViewController.swift */,
 				1D2E9C8829254B6B00BEDA2F /* LoadingCell.xib */,
 				1D89C203292553D000C8BC21 /* SearchResultCell.xib */,
 				1D2E9C84292546B900BEDA2F /* NothingFoundCell.xib */,
@@ -198,6 +201,7 @@
 				1DED765329199CA4009E3317 /* SearchResult.swift in Sources */,
 				1DED76632921626B009E3317 /* BounceAnimationController.swift in Sources */,
 				1DED766729216FC2009E3317 /* LandscapeViewController.swift in Sources */,
+				1D4BA7BF292959E20033EBB7 /* MenuViewController.swift in Sources */,
 				1DED764129184426009E3317 /* SceneDelegate.swift in Sources */,
 				1DED7657291AB588009E3317 /* SearchResultCell.swift in Sources */,
 				1DED766129215A52009E3317 /* GradientView.swift in Sources */,

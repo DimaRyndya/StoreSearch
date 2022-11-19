@@ -1,4 +1,5 @@
 import UIKit
+import MessageUI
 
 class DetailViewController: UIViewController {
     @IBOutlet weak var popupView: UIView!
@@ -69,13 +70,15 @@ class DetailViewController: UIViewController {
 
     @objc func showPopover(_ sender: UIBarButtonItem) {
         guard let popover = storyboard?.instantiateViewController(
-            withIdentifier: "PopoverView") else { return }
+            withIdentifier: "PopoverView") as? MenuViewController else { return }
         popover.modalPresentationStyle = .popover
         if let ppc = popover.popoverPresentationController {
             ppc.barButtonItem = sender
         }
+        popover.delegate = self
         present(popover, animated: true, completion: nil)
     }
+
     
     // MARK: - Actions
     @IBAction func close() {
@@ -143,6 +146,19 @@ extension DetailViewController: UIViewControllerTransitioningDelegate {
             return SlideOutAnimationController()
         case .fade:
             return FadeOutAnimationController()
+        }
+    }
+}
+
+extension DetailViewController: MenuViewControllerDelegate {
+    func menuViewControllerSendEmail(_: MenuViewController) {
+        dismiss(animated: true) {
+            if MFMailComposeViewController.canSendMail() {
+                let controller = MFMailComposeViewController()
+                controller.setSubject(NSLocalizedString("Support Request", comment: "Email subject"))
+                controller.setToRecipients(["your@email-address-here.com"])
+                self.present(controller, animated: true, completion: nil)
+            }
         }
     }
 }
