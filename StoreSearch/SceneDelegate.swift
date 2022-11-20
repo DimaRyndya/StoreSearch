@@ -1,16 +1,9 @@
-//
-//  SceneDelegate.swift
-//  StoreSearch
-//
-//  Created by Dmitriy Ryndya on 06.11.2022.
-//
-
 import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     var window: UIWindow?
-
+    
     // MARK: - Properties
     var splitVC: UISplitViewController {
         return window!.rootViewController as! UISplitViewController
@@ -20,7 +13,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let nav = splitVC.viewControllers.first as! UINavigationController
         return nav.viewControllers.first as! SearchViewController
     }
-
+    
     var detailVC: DetailViewController {
         let nav = splitVC.viewControllers.last as! UINavigationController
         return nav.viewControllers.first as! DetailViewController
@@ -30,7 +23,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let _ = (scene as? UIWindowScene) else { return }
         searchVC.splitViewDetail = detailVC
         splitVC.delegate = self
-
+        
         if UIDevice.current.userInterfaceIdiom == .phone {
             splitVC.preferredDisplayMode = .oneBesideSecondary
         }
@@ -63,8 +56,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to save data, release shared resources, and store enough scene-specific state information
         // to restore the scene back to its current state.
     }
-    
-    
 }
 
 extension SceneDelegate: UISplitViewControllerDelegate {

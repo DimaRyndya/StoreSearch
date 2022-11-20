@@ -37,8 +37,7 @@ class DetailViewController: UIViewController {
         print("deinit \(self)")
         downloadTask?.cancel()
     }
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         if isPopUp {

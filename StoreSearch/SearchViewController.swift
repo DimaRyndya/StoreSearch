@@ -160,17 +160,14 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
             let spinner = cell.viewWithTag(100) as! UIActivityIndicatorView
             spinner.startAnimating()
             return cell
-
         case .noResults:
             return tableView.dequeueReusableCell(
                 withIdentifier: TableView.CellIdentifiers.nothingFoundCell,
                 for: indexPath)
-
         case .results(let list):
             let cell = tableView.dequeueReusableCell(
                 withIdentifier: TableView.CellIdentifiers.searchResultCell,
                 for: indexPath) as! SearchResultCell
-
             let searchResult = list[indexPath.row]
             cell.configure(for: searchResult)
             return cell
@@ -191,7 +188,7 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
             }
 
             if splitViewController!.displayMode != .oneBesideSecondary {
-              hidePrimaryPane()
+                hidePrimaryPane()
             }
 
         }

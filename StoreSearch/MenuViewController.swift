@@ -14,7 +14,6 @@ class MenuViewController: UITableViewController {
             delegate?.menuViewControllerSendEmail(self)
         }
     }
-
 }
 
 protocol MenuViewControllerDelegate: AnyObject {

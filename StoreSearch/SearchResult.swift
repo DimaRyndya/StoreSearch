@@ -11,7 +11,6 @@ class SearchResult: Codable, CustomStringConvertible {
         return "\nResult - Kind: \(kind ?? "None"), Name: \(name), Artist Name: \(artistName ?? "None")"
     }
     
-    
     var artistName: String? = ""
     var trackName: String? = ""
     var kind: String? = ""
@@ -51,7 +50,7 @@ class SearchResult: Codable, CustomStringConvertible {
         let kind = self.kind ?? "audiobook"
         return typeForKind[kind] ?? kind
     }
-
+    
     private let typeForKind = [
         "album": NSLocalizedString(
             "Album",
@@ -84,8 +83,6 @@ class SearchResult: Codable, CustomStringConvertible {
             "TV Episode",
             comment: "Localized kind: TV Episode")
     ]
-
-
     
     var artist: String {
         return artistName ?? ""
