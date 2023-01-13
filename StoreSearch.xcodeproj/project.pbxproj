@@ -27,7 +27,7 @@
 		1DED7665292169ED009E3317 /* SlideOutAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DED7664292169ED009E3317 /* SlideOutAnimationController.swift */; };
 		1DED766729216FC2009E3317 /* LandscapeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DED766629216FC2009E3317 /* LandscapeViewController.swift */; };
 		1DED76692922ACD8009E3317 /* FadeOutAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DED76682922ACD8009E3317 /* FadeOutAnimationController.swift */; };
-		1DED766B2923D5F0009E3317 /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DED766A2923D5F0009E3317 /* Search.swift */; };
+		1DED766B2923D5F0009E3317 /* SearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DED766A2923D5F0009E3317 /* SearchService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,7 +58,7 @@
 		1DED7664292169ED009E3317 /* SlideOutAnimationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideOutAnimationController.swift; sourceTree = "<group>"; };
 		1DED766629216FC2009E3317 /* LandscapeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandscapeViewController.swift; sourceTree = "<group>"; };
 		1DED76682922ACD8009E3317 /* FadeOutAnimationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FadeOutAnimationController.swift; sourceTree = "<group>"; };
-		1DED766A2923D5F0009E3317 /* Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
+		1DED766A2923D5F0009E3317 /* SearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,7 +75,8 @@
 		1DED763229184426009E3317 = {
 			isa = PBXGroup;
 			children = (
-				1DED763D29184426009E3317 /* StoreSearch */,
+				1DF64433292E9D07006DAAAD /* Sources */,
+				1DF64434292E9D1B006DAAAD /* Resources */,
 				1DED763C29184426009E3317 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -91,30 +92,141 @@
 		1DED763D29184426009E3317 /* StoreSearch */ = {
 			isa = PBXGroup;
 			children = (
+				1DF6442D292E9C0A006DAAAD /* All */,
+				1DF6442E292E9C1D006DAAAD /* Common */,
+				1DF64431292E9CC3006DAAAD /* Features */,
+			);
+			path = StoreSearch;
+			sourceTree = "<group>";
+		};
+		1DF6442D292E9C0A006DAAAD /* All */ = {
+			isa = PBXGroup;
+			children = (
 				1DED763E29184426009E3317 /* AppDelegate.swift */,
 				1DED764029184426009E3317 /* SceneDelegate.swift */,
-				1DED764229184426009E3317 /* SearchViewController.swift */,
-				1DED765229199CA4009E3317 /* SearchResult.swift */,
-				1DED7656291AB588009E3317 /* SearchResultCell.swift */,
-				1DED765C291EC461009E3317 /* UIImageView+DownloadImage.swift */,
-				1DED765E291ED632009E3317 /* DetailViewController.swift */,
-				1DED766029215A52009E3317 /* GradientView.swift */,
-				1DED76622921626B009E3317 /* BounceAnimationController.swift */,
-				1DED7664292169ED009E3317 /* SlideOutAnimationController.swift */,
-				1DED766629216FC2009E3317 /* LandscapeViewController.swift */,
-				1DED76682922ACD8009E3317 /* FadeOutAnimationController.swift */,
-				1DED766A2923D5F0009E3317 /* Search.swift */,
-				1D4BA7BE292959E20033EBB7 /* MenuViewController.swift */,
-				1D2E9C8829254B6B00BEDA2F /* LoadingCell.xib */,
-				1D89C203292553D000C8BC21 /* SearchResultCell.xib */,
-				1D2E9C84292546B900BEDA2F /* NothingFoundCell.xib */,
-				1DED764429184426009E3317 /* Main.storyboard */,
-				1DED764729184427009E3317 /* Assets.xcassets */,
-				1DED764C29184427009E3317 /* Info.plist */,
+			);
+			path = All;
+			sourceTree = "<group>";
+		};
+		1DF6442E292E9C1D006DAAAD /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				1DF64430292E9C3D006DAAAD /* Extensions */,
+				1DF6442F292E9C2C006DAAAD /* Animations */,
 				1D89C2082925582D00C8BC21 /* Localizable.strings */,
 				1D89C20E2925783B00C8BC21 /* InfoPlist.strings */,
 			);
-			path = StoreSearch;
+			path = Common;
+			sourceTree = "<group>";
+		};
+		1DF6442F292E9C2C006DAAAD /* Animations */ = {
+			isa = PBXGroup;
+			children = (
+				1DED76622921626B009E3317 /* BounceAnimationController.swift */,
+				1DED7664292169ED009E3317 /* SlideOutAnimationController.swift */,
+				1DED76682922ACD8009E3317 /* FadeOutAnimationController.swift */,
+			);
+			path = Animations;
+			sourceTree = "<group>";
+		};
+		1DF64430292E9C3D006DAAAD /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				1DED765C291EC461009E3317 /* UIImageView+DownloadImage.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		1DF64431292E9CC3006DAAAD /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				1DF64439292E9EDB006DAAAD /* Manu */,
+				1DF64435292E9D82006DAAAD /* Search */,
+				1DF64432292E9CDF006DAAAD /* Services */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		1DF64432292E9CDF006DAAAD /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				1DED766A2923D5F0009E3317 /* SearchService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		1DF64433292E9D07006DAAAD /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				1DED763D29184426009E3317 /* StoreSearch */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		1DF64434292E9D1B006DAAAD /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				1DED764429184426009E3317 /* Main.storyboard */,
+				1DED764729184427009E3317 /* Assets.xcassets */,
+				1DED764C29184427009E3317 /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		1DF64435292E9D82006DAAAD /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				1DF64438292E9EA5006DAAAD /* View Model */,
+				1DF64436292E9D9B006DAAAD /* View */,
+				1DF64437292E9DC6006DAAAD /* View Controllers */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		1DF64436292E9D9B006DAAAD /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1DF6443A292EA1B4006DAAAD /* Nibs */,
+				1DED766029215A52009E3317 /* GradientView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		1DF64437292E9DC6006DAAAD /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				1DED764229184426009E3317 /* SearchViewController.swift */,
+				1DED765E291ED632009E3317 /* DetailViewController.swift */,
+				1DED766629216FC2009E3317 /* LandscapeViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		1DF64438292E9EA5006DAAAD /* View Model */ = {
+			isa = PBXGroup;
+			children = (
+				1DED765229199CA4009E3317 /* SearchResult.swift */,
+			);
+			path = "View Model";
+			sourceTree = "<group>";
+		};
+		1DF64439292E9EDB006DAAAD /* Manu */ = {
+			isa = PBXGroup;
+			children = (
+				1D4BA7BE292959E20033EBB7 /* MenuViewController.swift */,
+			);
+			path = Manu;
+			sourceTree = "<group>";
+		};
+		1DF6443A292EA1B4006DAAAD /* Nibs */ = {
+			isa = PBXGroup;
+			children = (
+				1DED7656291AB588009E3317 /* SearchResultCell.swift */,
+				1D2E9C8829254B6B00BEDA2F /* LoadingCell.xib */,
+				1D89C203292553D000C8BC21 /* SearchResultCell.xib */,
+				1D2E9C84292546B900BEDA2F /* NothingFoundCell.xib */,
+			);
+			path = Nibs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -193,7 +305,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1DED766B2923D5F0009E3317 /* Search.swift in Sources */,
+				1DED766B2923D5F0009E3317 /* SearchService.swift in Sources */,
 				1DED764329184426009E3317 /* SearchViewController.swift in Sources */,
 				1DED763F29184426009E3317 /* AppDelegate.swift in Sources */,
 				1DED76692922ACD8009E3317 /* FadeOutAnimationController.swift in Sources */,
@@ -394,7 +506,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = CHL34W9FC3;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = StoreSearch/Info.plist;
+				INFOPLIST_FILE = Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = Main.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -423,7 +535,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = CHL34W9FC3;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = StoreSearch/Info.plist;
+				INFOPLIST_FILE = Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = Main.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
