@@ -5,7 +5,7 @@ class SearchViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     
-    private let search = Search()
+    private let search = SearchService()
     var landscapeVC: LandscapeViewController?
     weak var splitViewDetail: DetailViewController?
     
@@ -112,7 +112,7 @@ extension SearchViewController: UISearchBarDelegate {
     }
     
     func performSearch() {
-        if let category = Search.Category(rawValue: segmentedControl.selectedSegmentIndex) {
+        if let category = SearchService.Category(rawValue: segmentedControl.selectedSegmentIndex) {
             search.performSearch(
                 for: searchBar.text!,
                 category: category) { success in

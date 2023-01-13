@@ -2,7 +2,7 @@ import Foundation
 
 typealias SearchComplete = (Bool) -> Void
 
-class Search {
+class SearchService {
     
     enum Category: Int {
         case all = 0
@@ -78,7 +78,7 @@ class Search {
             withAllowedCharacters: CharacterSet.urlQueryAllowed)!
         let urlString = "https://itunes.apple.com/search?" +
         "term=\(encodedText)&limit=200&entity=\(kind)" +
-        "&lang=\(language)&country=\(countryCode)"
+        "&language=\(language)&country=\(countryCode)"
         
         let url = URL(string: urlString)
         print("URL: \(url!)")

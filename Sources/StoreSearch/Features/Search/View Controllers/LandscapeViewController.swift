@@ -4,7 +4,7 @@ class LandscapeViewController: UIViewController {
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var pageControl: UIPageControl!
     
-    var search: Search!
+    var search: SearchService!
     private var firstTime = true
     private var downloads = [URLSessionDownloadTask]()
     
